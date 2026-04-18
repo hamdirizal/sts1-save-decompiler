@@ -27,7 +27,10 @@ async function main() {
   if (result instanceof Error) {
     console.error(result.message);
   }
-  console.log(result);
+  const formatted = JSON.stringify(JSON.parse(result as string), null, 2);
+  const outputPath = "_DECOMPILED.json";
+  await Bun.write(outputPath, formatted);
+  console.info(`Decompiled save written to ${outputPath}`);
 }
 
 main();
