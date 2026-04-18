@@ -39,10 +39,14 @@ export const encode = (s: string, key: string): string => {
   return base64Encode(encodedBytes);
 };
 
-export const decode = (s: string, key: string): string => {
-  const decodedBytes: Uint8Array = xorWithKey(
-    base64Decode(s),
-    stringToByteArray(key),
-  );
-  return byteArrayToString(decodedBytes);
+export const decode = (s: string, key: string): string | Error => {
+  try {
+    const decodedBytes: Uint8Array = xorWithKey(
+      base64Decode(s),
+      stringToByteArray(key),
+    );
+    return byteArrayToString(decodedBytes);
+  } catch {
+    return new Error("Failed to decode.");
+  }
 };

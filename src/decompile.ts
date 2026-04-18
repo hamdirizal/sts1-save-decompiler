@@ -1,6 +1,8 @@
+import { ENCRYPTION_KEY } from "./constants";
+import { decode } from "./encoder";
 import { isDirectory } from "./file-helper";
 
-async function main(): void {
+async function main() {
   const filePath = process.argv[2];
 
   if (!filePath) {
@@ -20,8 +22,12 @@ async function main(): void {
     process.exit(1);
   }
 
-  const content = await file.text();
-  console.log(content);
+  const rawContent = await file.text();
+  const result = decode(rawContent, ENCRYPTION_KEY);
+  if (result instanceof Error) {
+    console.error(result.message);
+  }
+  console.log(result);
 }
 
 main();
