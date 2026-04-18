@@ -4,6 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "decompile": "bun run src/decompile.ts",
+    "compile": "bun run src/compile.ts",
     "dev": "bun run src/index.ts",
     "start": "bun run src/index.ts",
     "check": "tsc --noEmit"
