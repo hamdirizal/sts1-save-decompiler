@@ -12,9 +12,4 @@ export const isFileExists = (path: string): boolean => {
   return fs.existsSync(path);
 };
 
-export const writeSaveDataToDisk = (
-  path: string,
-  saveObject: SaveObject,
-): void => {
-  fs.writeFileSync(path, encode(JSON.stringify(saveObject), ENCRYPTION_KEY));
-};
+export const backupAndOverwriteSafeFile = (path: string): void => {};
