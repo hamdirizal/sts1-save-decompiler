@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 export const isDirectory = (path: string): boolean => {
   try {
@@ -11,5 +11,3 @@ export const isDirectory = (path: string): boolean => {
 export const isFileExists = (path: string): boolean => {
   return fs.existsSync(path);
 };
-
-export const backupAndOverwriteSafeFile = (path: string): void => {};
