@@ -5,16 +5,11 @@
   "private": true,
   "scripts": {
     "decompile": "bun run src/decompile.ts",
-    "compile": "bun run src/compile.ts",
-    "dev": "bun run src/index.ts",
-    "start": "bun run src/index.ts",
-    "check": "tsc --noEmit"
+    "compile": "bun run src/compile.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.3.12",
     "typescript": "^6.0.3"
   },
-  "dependencies": {
-    "date-fns": "^4.1.0"
-  }
+  "dependencies": {}
 }
