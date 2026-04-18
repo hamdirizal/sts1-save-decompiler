@@ -15,9 +15,15 @@ async function main() {
   const jsonContent = JSON.parse(jsonString);
   const encoded = encode(JSON.stringify(jsonContent), ENCRYPTION_KEY);
 
-  const outputPath = "_COMPILED.autosave";
+  let outputPath = "1_THE_SILENT.autosave";
   await Bun.write(outputPath, encoded);
-  console.info(`Compiled save written to ${outputPath}`);
+  outputPath = "1_THE_IRONCLAD.autosave";
+  await Bun.write(outputPath, encoded);
+  outputPath = "1_THE_WATCHER.autosave";
+  await Bun.write(outputPath, encoded);
+  outputPath = "1_THE_DEFECT.autosave";
+  await Bun.write(outputPath, encoded);
+  console.info(`Compiled save written.`);
 }
 
 main();
